@@ -14,18 +14,18 @@ namespace GerenciamentoVendasLojaRoupas.UI
         {
             while (true)
             {
-                Console.WriteLine("Menu de Produtos:");
-                Console.WriteLine("1. Registrar Produto");
-                Console.WriteLine("2. Listar Produtos");
-                Console.WriteLine("3. Buscar Produto por ID");
-                Console.WriteLine("4. Atualizar Produto");
-                Console.WriteLine("5. Remover Produto");
-                Console.WriteLine("0. Voltar");
+                Console.WriteLine("Menu - Produtos:");
+                Console.WriteLine("1 - Registrar produto");
+                Console.WriteLine("2 - Listar produtos");
+                Console.WriteLine("3 - Buscar produto por ID");
+                Console.WriteLine("4 - Atualizar produto");
+                Console.WriteLine("5 - Remover produto");
+                Console.WriteLine("6 - Voltar");
 
-                Console.Write("Escolha uma opção: ");
-                int choice = int.Parse(Console.ReadLine());
+                Console.Write("Selecione uma opção: ");
+                int opcao = int.Parse(Console.ReadLine());
 
-                switch (choice)
+                switch (opcao)
                 {
                     case 1:
                         RegistrarProduto();
@@ -45,7 +45,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
                     case 0:
                         return;
                     default:
-                        Console.WriteLine("Opção inválida!");
+                        Console.WriteLine("Opção inválida.");
                         break;
                 }
             }
@@ -53,18 +53,18 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RegistrarProduto()
         {
-            Console.WriteLine("Registrar Novo Produto:");
+            Console.WriteLine("Registro de um novo produto:");
 
             Produto novoProduto = new Produto();
             novoProduto.Id = produtoIdCounter++;
 
-            Console.Write("Nome: ");
+            Console.Write("Informe o nome do produto: ");
             novoProduto.Nome = Console.ReadLine();
 
-            Console.Write("Descrição: ");
+            Console.Write("Informe a descrição do produto: ");
             novoProduto.Descricao = Console.ReadLine();
 
-            Console.Write("Preço: ");
+            Console.Write("Informe o preço do produto: ");
             novoProduto.Preco = decimal.Parse(Console.ReadLine());
 
             Console.Write("ID da Categoria: ");
@@ -76,12 +76,12 @@ namespace GerenciamentoVendasLojaRoupas.UI
             }
             else
             {
-                Console.WriteLine("Categoria não encontrada. O produto será registrado sem categoria.");
+                Console.WriteLine("Categoria não encontrada.");
             }
 
             produtos.Add(novoProduto);
 
-            Console.WriteLine("Produto registrado com sucesso!");
+            Console.WriteLine("Produto registrado.");
         }
 
         public static void ListarProdutos()
@@ -97,7 +97,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void BuscarProdutoPorId()
         {
-            Console.Write("Digite o ID do Produto: ");
+            Console.Write("Informe o ID do produto a ser buscado: ");
             int id = int.Parse(Console.ReadLine());
 
             Produto produto = produtos.Find(p => p.Id == id);
@@ -115,25 +115,23 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void AtualizarProduto()
         {
-            Console.Write("Digite o ID do Produto para atualizar: ");
+            Console.Write("Informe o ID do produto a ser atualizado: ");
             int id = int.Parse(Console.ReadLine());
 
             Produto produto = produtos.Find(p => p.Id == id);
 
             if (produto != null)
             {
-                Console.WriteLine($"Atualizando Produto {produto.Nome}:");
-
-                Console.Write("Novo Nome: ");
+                Console.Write("Informe o novo nome: ");
                 produto.Nome = Console.ReadLine();
 
-                Console.Write("Nova Descrição: ");
+                Console.Write("Informe a nova descrição: ");
                 produto.Descricao = Console.ReadLine();
 
-                Console.Write("Novo Preço: ");
+                Console.Write("Informe o novo preço: ");
                 produto.Preco = decimal.Parse(Console.ReadLine());
 
-                Console.Write("ID da Nova Categoria: ");
+                Console.Write("Informe o ID da nova categoria: ");
                 int categoriaId = int.Parse(Console.ReadLine());
                 Categoria novaCategoria = CategoriaUI.GetCategoriaPorId(categoriaId);
                 if (novaCategoria != null)
@@ -142,10 +140,10 @@ namespace GerenciamentoVendasLojaRoupas.UI
                 }
                 else
                 {
-                    Console.WriteLine("Categoria não encontrada. O produto continuará com a categoria anterior.");
+                    Console.WriteLine("Categoria não encontrada.");
                 }
 
-                Console.WriteLine("Produto atualizado com sucesso!");
+                Console.WriteLine("Produto atualizado.");
             }
             else
             {
@@ -155,7 +153,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RemoverProduto()
         {
-            Console.Write("Digite o ID do Produto para remover: ");
+            Console.Write("Informe o ID do produto a ser removido: ");
             int id = int.Parse(Console.ReadLine());
 
             Produto produto = produtos.Find(p => p.Id == id);
@@ -163,7 +161,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
             if (produto != null)
             {
                 produtos.Remove(produto);
-                Console.WriteLine("Produto removido com sucesso!");
+                Console.WriteLine("Produto removido.");
             }
             else
             {

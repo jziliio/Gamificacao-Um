@@ -13,18 +13,18 @@ namespace GerenciamentoVendasLojaRoupas.UI
         {
             while (true)
             {
-                Console.WriteLine("Menu de Categorias:");
-                Console.WriteLine("1. Registrar Categoria");
-                Console.WriteLine("2. Listar Categorias");
-                Console.WriteLine("3. Buscar Categoria por ID");
-                Console.WriteLine("4. Atualizar Categoria");
-                Console.WriteLine("5. Remover Categoria");
-                Console.WriteLine("0. Voltar");
+                Console.WriteLine("Menu - Categorias:");
+                Console.WriteLine("1 - Registrar categoria");
+                Console.WriteLine("2 - Listar categorias");
+                Console.WriteLine("3 - Buscar categoria por ID");
+                Console.WriteLine("4 - Atualizar categoria");
+                Console.WriteLine("5 - Remover categoria");
+                Console.WriteLine("6 - Voltar");
 
-                Console.Write("Escolha uma opção: ");
-                int choice = int.Parse(Console.ReadLine());
+                Console.Write("Selecione uma opção: ");
+                int opcao = int.Parse(Console.ReadLine());
 
-                switch (choice)
+                switch (opcao)
                 {
                     case 1:
                         RegistrarCategoria();
@@ -41,10 +41,10 @@ namespace GerenciamentoVendasLojaRoupas.UI
                     case 5:
                         RemoverCategoria();
                         break;
-                    case 0:
+                    case 6:
                         return;
                     default:
-                        Console.WriteLine("Opção inválida!");
+                        Console.WriteLine("Opção inválida.");
                         break;
                 }
             }
@@ -52,20 +52,20 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RegistrarCategoria()
         {
-            Console.WriteLine("Registrar Nova Categoria:");
+            Console.WriteLine("Registro de uma nova categoria:");
 
             Categoria novaCategoria = new Categoria();
             novaCategoria.Id = categoriaIdCounter++;
 
-            Console.Write("Nome: ");
+            Console.Write("Informe o nome: ");
             novaCategoria.Nome = Console.ReadLine();
 
-            Console.Write("Descrição: ");
+            Console.Write("Informe a descrição: ");
             novaCategoria.Descricao = Console.ReadLine();
 
             categorias.Add(novaCategoria);
 
-            Console.WriteLine("Categoria registrada com sucesso!");
+            Console.WriteLine("A categoria foi registrada.");
         }
 
         public static void ListarCategorias()
@@ -80,7 +80,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void BuscarCategoriaPorId()
         {
-            Console.Write("Digite o ID da Categoria: ");
+            Console.Write("Informe o ID da categoria: ");
             int id = int.Parse(Console.ReadLine());
 
             Categoria categoria = categorias.Find(c => c.Id == id);
@@ -97,22 +97,20 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void AtualizarCategoria()
         {
-            Console.Write("Digite o ID da Categoria para atualizar: ");
+            Console.Write("Informe o ID da categoria para atualizar: ");
             int id = int.Parse(Console.ReadLine());
 
             Categoria categoria = categorias.Find(c => c.Id == id);
 
             if (categoria != null)
             {
-                Console.WriteLine($"Atualizando Categoria {categoria.Nome}:");
-
-                Console.Write("Novo Nome: ");
+                Console.Write("Novo nome: ");
                 categoria.Nome = Console.ReadLine();
 
-                Console.Write("Nova Descrição: ");
+                Console.Write("Nova descrição: ");
                 categoria.Descricao = Console.ReadLine();
 
-                Console.WriteLine("Categoria atualizada com sucesso!");
+                Console.WriteLine("Categoria atualizada.");
             }
             else
             {
@@ -122,7 +120,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RemoverCategoria()
         {
-            Console.Write("Digite o ID da Categoria para remover: ");
+            Console.Write("Informe o ID da categoria para ser removida: ");
             int id = int.Parse(Console.ReadLine());
 
             Categoria categoria = categorias.Find(c => c.Id == id);
@@ -130,7 +128,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
             if (categoria != null)
             {
                 categorias.Remove(categoria);
-                Console.WriteLine("Categoria removida com sucesso!");
+                Console.WriteLine("Categoria removida.");
             }
             else
             {
