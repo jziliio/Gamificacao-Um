@@ -1,1 +1,3 @@
-aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Feito aqui um programa que gerencia uma Loja de roupas, desde vendas, até os produtos em estoque e afins, feito pelos alunos João Vitor Zilio, Gabriela Kolben Passos e Tassiane Anzolin.
+
+Observação: Foi feita uma migração de repositórios por necessidade extrema, visto que o repositório antigo havia muitos bugs com merge e afins, houveram erros de comnuicação e falta de organização por nossa parte também por isso pedimos desculpas, no repositório antigo estão os commits por todos do grupo. nesse foi realizado apenas a transferência de códigos.
