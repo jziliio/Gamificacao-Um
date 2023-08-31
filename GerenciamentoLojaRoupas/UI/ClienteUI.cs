@@ -13,15 +13,15 @@ namespace GerenciamentoVendasLojaRoupas.UI
         {
             while (true)
             {
-                Console.WriteLine("Menu de Clientes:");
-                Console.WriteLine("1. Registrar Cliente");
-                Console.WriteLine("2. Listar Clientes");
-                Console.WriteLine("3. Buscar Cliente por ID");
-                Console.WriteLine("4. Atualizar Cliente");
-                Console.WriteLine("5. Remover Cliente");
-                Console.WriteLine("0. Voltar");
+                Console.WriteLine("Menu - Clientes:");
+                Console.WriteLine("1 - Registrar cliente");
+                Console.WriteLine("2 - Listar clientes");
+                Console.WriteLine("3 - Buscar cliente por ID");
+                Console.WriteLine("4 - Atualizar cliente");
+                Console.WriteLine("5 - Remover cliente");
+                Console.WriteLine("6 - Voltar");
 
-                Console.Write("Escolha uma opção: ");
+                Console.Write("Selecione uma opção: ");
                 int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
@@ -41,10 +41,10 @@ namespace GerenciamentoVendasLojaRoupas.UI
                     case 5:
                         RemoverCliente();
                         break;
-                    case 0:
+                    case 6:
                         return;
                     default:
-                        Console.WriteLine("Opção inválida!");
+                        Console.WriteLine("Opção inválida.");
                         break;
                 }
             }
@@ -52,31 +52,31 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RegistrarCliente()
         {
-            Console.WriteLine("Registrar Novo Cliente:");
+            Console.WriteLine("Registro de um novo cliente:");
 
             Cliente novoCliente = new Cliente();
             novoCliente.Id = clienteIdCounter++;
 
-            Console.Write("Nome: ");
+            Console.Write("Informe somente o nome: ");
             novoCliente.Nome = Console.ReadLine();
 
-            Console.Write("Sobrenome: ");
+            Console.Write("Informe o sobrenome: ");
             novoCliente.Sobrenome = Console.ReadLine();
 
-            Console.Write("Endereço: ");
+            Console.Write("Informe o endereço: ");
             novoCliente.Endereco = Console.ReadLine();
 
-            Console.Write("Número de Telefone: ");
+            Console.Write("Informe o número para contato: ");
             novoCliente.NumeroTelefone = Console.ReadLine();
 
             clientes.Add(novoCliente);
 
-            Console.WriteLine("Cliente registrado com sucesso!");
+            Console.WriteLine("Cliente registrado.");
         }
 
         public static void ListarClientes()
         {
-            Console.WriteLine("Lista de Clientes:");
+            Console.WriteLine("Lista de clientes:");
 
             foreach (var cliente in clientes)
             {
@@ -86,7 +86,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void BuscarClientePorId()
         {
-            Console.Write("Digite o ID do Cliente: ");
+            Console.Write("Informe o ID do Cliente: ");
             int id = int.Parse(Console.ReadLine());
 
             Cliente cliente = clientes.Find(c => c.Id == id);
@@ -103,28 +103,26 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void AtualizarCliente()
         {
-            Console.Write("Digite o ID do Cliente para atualizar: ");
+            Console.Write("Informe o ID do cliente para ser atualizado: ");
             int id = int.Parse(Console.ReadLine());
 
             Cliente cliente = clientes.Find(c => c.Id == id);
 
             if (cliente != null)
             {
-                Console.WriteLine($"Atualizando Cliente {cliente.Nome} {cliente.Sobrenome}:");
-
-                Console.Write("Novo Nome: ");
+                Console.Write("Informe (somente) o novo nome: ");
                 cliente.Nome = Console.ReadLine();
 
-                Console.Write("Novo Sobrenome: ");
+                Console.Write("Informe o novo sobrenome: ");
                 cliente.Sobrenome = Console.ReadLine();
 
-                Console.Write("Novo Endereço: ");
+                Console.Write("Informe o novo endereço: ");
                 cliente.Endereco = Console.ReadLine();
 
-                Console.Write("Novo Número de Telefone: ");
+                Console.Write("Informe o novo número para contato: ");
                 cliente.NumeroTelefone = Console.ReadLine();
 
-                Console.WriteLine("Cliente atualizado com sucesso!");
+                Console.WriteLine("Cliente atualizado.");
             }
             else
             {
@@ -134,7 +132,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RemoverCliente()
         {
-            Console.Write("Digite o ID do Cliente para remover: ");
+            Console.Write("Informe o ID do Cliente a ser removido: ");
             int id = int.Parse(Console.ReadLine());
 
             Cliente cliente = clientes.Find(c => c.Id == id);
@@ -142,7 +140,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
             if (cliente != null)
             {
                 clientes.Remove(cliente);
-                Console.WriteLine("Cliente removido com sucesso!");
+                Console.WriteLine("Cliente removido.");
             }
             else
             {

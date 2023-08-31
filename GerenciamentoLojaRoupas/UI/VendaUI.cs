@@ -11,12 +11,12 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
         public static void RealizarVenda()
         {
-            Console.WriteLine("Realizar Nova Venda:");
+            Console.WriteLine("Realizar nova venda:");
 
             Venda novaVenda = new Venda();
             novaVenda.Id = vendaIdCounter++;
 
-            Console.Write("ID do Cliente: ");
+            Console.Write("Informe o ID do cliente: ");
             int clienteId = int.Parse(Console.ReadLine());
             Cliente cliente = ClienteUI.GetClientePorId(clienteId);
             if (cliente != null)
@@ -35,7 +35,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
             vendas.Add(novaVenda);
 
-            Console.WriteLine("Venda realizada com sucesso!");
+            Console.WriteLine("Venda realizada.");
         }
 
         private static List<Produto> SelecionarProdutos()
@@ -45,7 +45,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
 
             while (continuarSelecionando)
             {
-                Console.Write("ID do Produto (ou 0 para finalizar): ");
+                Console.Write("Informe o ID do produto (ou 0 para finalizar): ");
                 int produtoId = int.Parse(Console.ReadLine());
 
                 if (produtoId == 0)
@@ -62,7 +62,7 @@ namespace GerenciamentoVendasLojaRoupas.UI
                     }
                     else
                     {
-                        Console.WriteLine("Produto não encontrado. Por favor, insira um ID válido.");
+                        Console.WriteLine("Produto não encontrado.");
                     }
                 }
             }

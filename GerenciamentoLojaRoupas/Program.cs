@@ -22,7 +22,7 @@ namespace GerenciamentoVendasLojaRoupas
                 Console.WriteLine("3 - Gerenciamento de clientes");
                 Console.WriteLine("4 - Realizar vendas");
                 Console.WriteLine("5 - Sair");
-                Console.Write("Escolha uma opção: ");
+                Console.Write("Selecione uma opção: ");
                 int opcao = int.Parse(Console.ReadLine());
 
                 switch (opcao)
