@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Vendas de Loja de Roupas - README
 
-Este é um projeto de um Sistema de Gerenciamento de Vendas para uma Loja de Roupas. O sistema foi desenvolvido em linguagem C e permite a gestão de produtos, categorias, clientes e vendas, oferecendo uma interface de linha de comando para interação.
+Este é um projeto de um Sistema de Gerenciamento de Vendas para uma Loja de Roupas. O sistema foi desenvolvido em linguagem C# e permite a gestão de produtos, categorias, clientes e vendas, oferecendo uma interface de linha de comando para interação.
 
 ## Classes Básicas
 
